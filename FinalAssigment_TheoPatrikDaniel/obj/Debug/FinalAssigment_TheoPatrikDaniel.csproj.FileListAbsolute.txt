@@ -1,0 +1,8 @@
+C:\Users\danis\Projects\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.csproj.AssemblyReference.cache
+C:\Users\danis\Projects\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.csproj.SuggestedBindingRedirects.cache
+C:\Users\danis\Projects\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.csproj.CoreCompileInputs.cache
+C:\Users\danis\Projects\FinalAssigment_TheoPatrikDaniel\bin\Debug\FinalAssigment_TheoPatrikDaniel.exe.config
+C:\Users\danis\Projects\FinalAssigment_TheoPatrikDaniel\bin\Debug\FinalAssigment_TheoPatrikDaniel.exe
+C:\Users\danis\Projects\FinalAssigment_TheoPatrikDaniel\bin\Debug\FinalAssigment_TheoPatrikDaniel.pdb
+C:\Users\danis\Projects\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.exe
+C:\Users\danis\Projects\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.pdb
