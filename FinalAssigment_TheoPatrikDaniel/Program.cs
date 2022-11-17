@@ -11,8 +11,8 @@ namespace FinalAssigment_TheoPatrikDaniel
         static void Main(string[] args)
         {
             Processor p = new Processor();
-            p.ImportFile();
-           // p.Process();
+            //p.ImportFile();
+             p.Process();
 
             Console.ReadLine();
         }

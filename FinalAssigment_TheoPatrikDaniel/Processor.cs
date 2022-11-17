@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
@@ -12,9 +13,13 @@ namespace FinalAssigment_TheoPatrikDaniel
 {
     internal class Processor : Interface, Importer, IAnalysis
     {
-
+        //Lists for every type of classes
         List<Customer> customers = new List<Customer>();
-
+        List<Manager> managers = new List<Manager>();
+        List<Receptionists> receptionists = new List<Receptionists>();
+        List<HousekeepingStaff> hKStaffs = new List<HousekeepingStaff>();
+        List<Room> rooms = new List<Room>();
+        //
         public int CountAllCustomers()
         {
             throw new NotImplementedException();
@@ -40,11 +45,12 @@ namespace FinalAssigment_TheoPatrikDaniel
             throw new NotImplementedException();
         }
 
-        public List<Customer> ImportFile()
+        //import CUSTOMER file________________________________________________________________________________________________________________________________________
+        public List<Customer> ImportCustomerFile()
         {
-            //import file_____________________________________________________________________________
-            string pathoffile = "C:\\Users\\danis\\Projects\\FinalAssigment_TheoPatrikDaniel\\FileSources\\FinalAssignment_TheoPatrikDaniel_2.csv";
-            string[] lines = File.ReadAllLines(pathoffile);
+            
+            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Customers.csv";
+            string[] lines = File.ReadAllLines(pathoffile); 
             Customer customer = null;
             for (int i = 0; i < lines.Length; i++)
             {
@@ -55,23 +61,159 @@ namespace FinalAssigment_TheoPatrikDaniel
                     customer.Id = int.Parse(cols[0]);
                     customer.Name = cols[1];
                     customer.Address = cols[2];
-                    customer.DOB = cols[3] ;
-                    customer.MemberSince = cols[4];
+                    customer.Nationality = cols[3];
+                    customer.DOB = cols[4];
+                    customer.MemberSince = cols[5];
                     customers.Add(customer);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    // Console.WriteLine(ex.Message);
+                    string s = "Lets go ";
                 }
-
             }
             return customers;
         }
-            public void Process()
+        //import Manager file_______________________________________________________________________________________________________________________________________________
+        public List<Manager> ImportManagerFile()
         {
-          
-                //menu____________________________________________________________________________________
-                int input = -1;
+
+            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Managers.csv";
+            string[] lines = File.ReadAllLines(pathoffile);
+            Manager manager = null;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                try
+                {
+                    manager = new Manager(i);
+                    string[] cols = lines[i].Split(';');
+                    manager.SSN = int.Parse(cols[0]);
+                    manager.FirstName = cols[1];
+                    manager.LastName = cols[2];
+                    manager.Address = cols[3];
+                    manager.DOB = cols[4];
+                    manager.JoinedDate = cols[5];
+                    manager.OtherExpertise = cols[6];
+                    manager.Senior = bool.Parse(cols[7]);
+                    manager.HoldsHospitalityAcademicDegree = bool.Parse(cols[8]);
+                    manager.YearsOfExperience = int.Parse(cols[9]);
+                    managers.Add(manager);
+                }
+                catch (Exception ex)
+                {
+                    // Console.WriteLine(ex.Message);
+                    string s = "Lets go ";
+                }
+            }
+            return managers;
+        }
+
+        //import Receptionists file_______________________________________________________________________________________________________________________________________________
+        public List<Receptionists> ImportReceptionistsFile()
+        {
+
+            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Receptionists.csv";
+            string[] lines = File.ReadAllLines(pathoffile);
+            Receptionists receptionist = null;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                try
+                {
+                    receptionist = new Receptionists(i);
+                    string[] cols = lines[i].Split(';');
+                    receptionist.SSN = int.Parse(cols[0]);
+                    receptionist.FirstName = cols[1];
+                    receptionist.LastName = cols[2];
+                    receptionist.Address = cols[3];
+                    receptionist.DOB = cols[4];
+                    receptionist.JoinedDate = cols[5];
+                    receptionist.YearsOfExperience = int.Parse(cols[6]);
+                    receptionist.OtherExpertise = cols[7];
+                    receptionists.Add(receptionist);
+                }
+                catch (Exception ex)
+                {
+                    // Console.WriteLine(ex.Message);
+                    string s = "Lets go ";
+                }
+            }
+            return receptionists;
+        }
+        //import House keeping staff file_______________________________________________________________________________________________________________________________________________
+        public List<HousekeepingStaff> ImportHKStaffFile()
+        {
+
+            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Housekeeping.csv";
+            string[] lines = File.ReadAllLines(pathoffile);
+            HousekeepingStaff hKStaff = null;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                try
+                {
+                    hKStaff = new HousekeepingStaff(i);
+                    string[] cols = lines[i].Split(';');
+                    hKStaff.SSN = int.Parse(cols[0]);
+                    hKStaff.FirstName = cols[1];
+                    hKStaff.LastName = cols[2];
+                    hKStaff.Address = cols[3];
+                    hKStaff.DOB = cols[4];
+                    hKStaff.JoinedDate = cols[5];
+                    hKStaffs.Add(hKStaff);
+                }
+                catch (Exception ex)
+                {
+                    // Console.WriteLine(ex.Message);
+                    string s = "Lets go ";
+                }
+            }
+            return hKStaffs;
+        }
+        //import Room file_______________________________________________________________________________________________________________________________________________
+        public List<Room> ImportRoomFile()
+        {
+
+            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Rooms.csv";
+            string[] lines = File.ReadAllLines(pathoffile);
+            Room room = null;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                try
+                {
+                    room = new Room();
+                    string[] cols = lines[i].Split(';');
+                    room.Id = int.Parse(cols[0]);
+                    room.RoomName = cols[1];
+                    room.RoomPrice = int.Parse(cols[2]);
+                    room.Dates = DateTime.ParseExact(cols[3],"dd.MM.yyyy" ,CultureInfo.InvariantCulture);
+                    room.Booked = bool.Parse(cols[4]);
+
+                    rooms.Add(room);
+                }
+                catch (Exception ex)
+                {
+                    // Console.WriteLine(ex.Message);
+                    string s = "Lets go ";
+                }
+            }
+            return rooms;
+        }
+
+        public void Process()
+        {
+            ImportCustomerFile();
+            ImportManagerFile();
+            ImportReceptionistsFile();
+            ImportHKStaffFile();
+            ImportRoomFile();
+
+           //customer list
+           /*foreach(Customer customer in customers)
+            {
+                Console.WriteLine(customer.Name);
+            }*/
+       
+            //menu____________________________________________________________________________________
+            int input = -1;
             do
             {
                 input = ShowMenu();
@@ -79,13 +221,49 @@ namespace FinalAssigment_TheoPatrikDaniel
                 {
                     case 1:
                         //BookRoom menu
-
+                        /*
+                          Console.WriteLine("Please provide your Date of Birth (dd-MM-yyyy):");
+                          aff.Dob = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", null);
+                         */
                         break;
                     case 2:
                         //show all bookings in the future
                         break;
                     case 3:
                         //show all staff details
+
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine("************ Here the details of all the housekeeping staff members ************");
+                        Console.WriteLine();
+                        foreach (HousekeepingStaff staff in hKStaffs)
+                        {
+                            Console.WriteLine($"SSN: {staff.SSN}, first name: {staff.FirstName}, last name: {staff.LastName}, address: {staff.Address}, " +
+                                $"date of birth: {staff.DOB}, date of joining: {staff.JoinedDate}.",Console.BackgroundColor, Console.ForegroundColor);
+                            Console.WriteLine();
+                        }
+
+                        Console.WriteLine("************ Here the details of all the receptionists ************");
+                        Console.WriteLine();
+                        foreach (Receptionists receptionist in receptionists)
+                        {
+                            Console.WriteLine($"SSN: {receptionist.SSN}, first name: {receptionist.FirstName}, last name: {receptionist.LastName}, address: {receptionist.Address}, " +
+                                $"date of birth: {receptionist.DOB}, date of joining: {receptionist.JoinedDate}, other expertise: {receptionist.OtherExpertise}," +
+                                $" years of experience {receptionist.YearsOfExperience}.", Console.BackgroundColor, Console.ForegroundColor);
+                            Console.WriteLine();
+                        }
+
+                       /* Console.WriteLine("************Here the details of all the housekeeping staff members************");
+                                                foreach (HousekeepingStaff staff in hKStaffs)
+                        {
+                            Console.WriteLine($"SSN: {staff.SSN}, first name: {staff.FirstName}, last name: {staff.LastName}, address: {staff.Address}, " +
+                                $"date of birth: {staff.DOB}, date of joining: {staff.JoinedDate}.", Console.BackgroundColor, Console.ForegroundColor);
+                            Console.WriteLine();
+                        }*/ 
+
+
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
                     case 4:
                         //print total value of booked rooms
@@ -97,7 +275,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         }
         private int ShowMenu()
         {
-            Console.WriteLine("Welcome to Hotel Transylvania");
+            Console.WriteLine("Welcome to HotelX");
             Console.WriteLine("Press 1. To book a room");
             Console.WriteLine("Press 2. To Show all bookings");
             Console.WriteLine("Press 3. To Show all staff details");

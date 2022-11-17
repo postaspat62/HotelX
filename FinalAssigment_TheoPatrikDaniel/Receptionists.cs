@@ -8,6 +8,8 @@ namespace FinalAssigment_TheoPatrikDaniel
 {
     internal class Receptionists:Employee
     {
-        public Receptionists(int id) : base(id) { }
+        public Receptionists(int ssn) : base(ssn) { }
+        public int YearsOfExperience { get; set; }
+        public string OtherExpertise { get; set; }
     }
 }
