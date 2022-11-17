@@ -49,7 +49,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public List<Customer> ImportCustomerFile()
         {
             
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Customers.csv";
+            string pathoffile = "Customers.csv";
             string[] lines = File.ReadAllLines(pathoffile); 
             Customer customer = null;
             for (int i = 0; i < lines.Length; i++)
@@ -78,7 +78,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public List<Manager> ImportManagerFile()
         {
 
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Managers.csv";
+            string pathoffile = "Managers.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Manager manager = null;
             for (int i = 0; i < lines.Length; i++)
@@ -112,7 +112,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public List<Receptionists> ImportReceptionistsFile()
         {
 
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Receptionists.csv";
+            string pathoffile = "Receptionists.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Receptionists receptionist = null;
             for (int i = 0; i < lines.Length; i++)
@@ -143,7 +143,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public List<HousekeepingStaff> ImportHKStaffFile()
         {
 
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Housekeeping.csv";
+            string pathoffile = "Housekeeping.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             HousekeepingStaff hKStaff = null;
             for (int i = 0; i < lines.Length; i++)
@@ -169,10 +169,10 @@ namespace FinalAssigment_TheoPatrikDaniel
             return hKStaffs;
         }
         //import Room file_______________________________________________________________________________________________________________________________________________
-        public List<Room> ImportRoomFile()
+        private List<Room> ImportRoomFile()
         {
 
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Rooms.csv";
+            string pathoffile = "Rooms.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Room room = null;
             for (int i = 0; i < lines.Length; i++)
