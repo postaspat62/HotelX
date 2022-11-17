@@ -11,7 +11,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         static void Main(string[] args)
         {
             Processor p = new Processor();
-            
+
             p.Process();
 
             Console.ReadLine();

@@ -252,6 +252,15 @@ namespace FinalAssigment_TheoPatrikDaniel
                                 $" years of experience {receptionist.YearsOfExperience}.", Console.BackgroundColor, Console.ForegroundColor);
                             Console.WriteLine();
                         }
+                        Console.WriteLine("************ Here the details of the managers ************");
+                        Console.WriteLine();
+                        foreach (Manager manager in managers)
+                        {
+                            Console.WriteLine($"SSN: {manager.SSN}, first name: {manager.FirstName}, last name: {manager.LastName}, address: {manager.Address}, " +
+                                $"date of birth: {manager.DOB}, date of joining: {manager.JoinedDate}, other expertise: {manager.OtherExpertise}," +
+                                $" seniority status: {manager.Senior}, holds a(n) hospitality/academic degree: {manager.HoldsHospitalityAcademicDegree}, years of experience {manager.YearsOfExperience}.", Console.BackgroundColor, Console.ForegroundColor);
+                            Console.WriteLine();
+                        }
 
                        /* Console.WriteLine("************Here the details of all the housekeeping staff members************");
                                                 foreach (HousekeepingStaff staff in hKStaffs)

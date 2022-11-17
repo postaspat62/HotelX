@@ -1,4 +1,4 @@
-﻿SSN;Firstname;Lastname;DOB;YearsOfExperience;HoldsHospitality/AcademicDegree;JoinedDate;OtherExpertise;Address;Senior
-3306287171;Lex;Luthor;04.28.1984;16;y;09.19.2020;Finance;Gotham street 64;TRUE
-3306287172;Mask;Black;04.28.1985;17;y;09.19.2021;Accountant;Gotham street 65;FALSE
-3306287173;Mercy;Graves;04.28.1986;18;y;09.19.2022;Sales;Gotham street 66;FALSE
+﻿SSN;Firstname;Lastname;Address;DOB;JoinedDate;OtherExpertise;Senior;HoldsHospitality/AcademicDegree;YearsOfExperience
+330628717;Lex;Luthor;Gotham street 64;04.28.1984;09.19.2020;Finance;TRUE;TRUE;16
+330628718;Mask;Black;Gotham street 65;04.28.1985;09.19.2021;Accountant;FALSE;TRUE;17
+330628719;Mercy;Graves;Gotham street 66;04.28.1986;09.19.2022;Sales;FALSE;TRUE;18
