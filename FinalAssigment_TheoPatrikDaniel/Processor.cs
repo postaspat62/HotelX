@@ -225,6 +225,19 @@ namespace FinalAssigment_TheoPatrikDaniel
                           Console.WriteLine("Please provide your Date of Birth (dd-MM-yyyy):");
                           aff.Dob = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", null);
                          */
+
+                        //Choose Room
+                        Console.WriteLine("*****Book a room*****");
+                        //list of roomsˇˇ
+
+
+                        Console.WriteLine("Which room would you like to book?");
+                        int rn = int.Parse(Console.ReadLine());
+                        Console.WriteLine("Please provide the start date and the end date of the booking:");
+                        Console.Write("Start date: ");
+                        /*start date from room csv = */DateTime.Parse(Console.ReadLine());
+                        Console.Write("End date: ");
+                        /*end date from room csv = */DateTime.Parse(Console.ReadLine());
                         break;
                     case 2:
                         //show all bookings in the future
