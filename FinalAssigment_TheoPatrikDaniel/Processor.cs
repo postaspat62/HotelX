@@ -13,7 +13,7 @@ namespace FinalAssigment_TheoPatrikDaniel
 {
     internal class Processor : Interface, Importer, IAnalysis
     {
-        //Lists for every type of classes
+        //Lists for every type of classes for import files
         List<Customer> customers = new List<Customer>();
         List<Manager> managers = new List<Manager>();
         List<Receptionists> receptionists = new List<Receptionists>();
@@ -204,12 +204,9 @@ namespace FinalAssigment_TheoPatrikDaniel
             ImportHKStaffFile();
             ImportRoomFile();
 
-           //customer list
-           /*foreach(Customer customer in customers)
-            {
-                Console.WriteLine(customer.Name);
-            }*/
-       
+            //creating list for booked rooms
+            List<Room> bookedRooms = new List<Room>();
+
             //menu____________________________________________________________________________________
             int input = -1;
             do
@@ -232,20 +229,33 @@ namespace FinalAssigment_TheoPatrikDaniel
                         {
                             Console.WriteLine($"{room.Id} {room.RoomName} {room.RoomPrice}");
                         }
-                        Room n1 = new Room();
+                        Room bookedRoom = new Room();
                         Console.WriteLine(" ");
                         Console.Write("Please provide the room number:");
-                        n1.Id = int.Parse(Console.ReadLine());
+                        bookedRoom.Id = int.Parse(Console.ReadLine());
                         Console.WriteLine("Please provide the start date and the end date of the booking:");
                         Console.Write("Start date: ");
-                        n1.StartDate = DateTime.Parse(Console.ReadLine());
+                        bookedRoom.StartDate = DateTime.Parse(Console.ReadLine());
                         Console.Write("End date: ");
-                        n1.EndDate = DateTime.Parse(Console.ReadLine());
+                        bookedRoom.EndDate = DateTime.Parse(Console.ReadLine());
+                        
+                        bookedRooms.Add(bookedRoom);
 
                         /*end date from room csv = */
-                        DateTime.Parse(Console.ReadLine());
                         break;
                     case 2:
+                        Console.WriteLine();
+                        foreach (Room bRoom in bookedRooms)
+                        {
+                            foreach(Room room in rooms)
+                            {
+                                if(bRoom.Id == room.Id) {
+                                    Console.WriteLine($"{bRoom.Id} - {room.RoomName} - {room.RoomPrice} - {bRoom.StartDate} - {bRoom.EndDate}");
+                                }
+                                
+                            }
+                           // Console.WriteLine($"{room.Id} - {room.RoomName} - {room.RoomPrice} - {room.StartDate} - {room.EndDate}");
+                        }
                         //show all bookings in the future
                         break;
                     case 3:
@@ -295,6 +305,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                         break;
                     case 4:
                         //print total value of booked rooms
+                        //total value =+ (days*roomprice)
                         break;
                 }
 
