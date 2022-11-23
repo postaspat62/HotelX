@@ -49,7 +49,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public List<Customer> ImportCustomerFile()
         {
             
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Customers.csv";
+            string pathoffile = "Customers.csv";
             string[] lines = File.ReadAllLines(pathoffile); 
             Customer customer = null;
             for (int i = 0; i < lines.Length; i++)
@@ -78,7 +78,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public List<Manager> ImportManagerFile()
         {
 
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Managers.csv";
+            string pathoffile = "Managers.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Manager manager = null;
             for (int i = 0; i < lines.Length; i++)
@@ -112,7 +112,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public List<Receptionists> ImportReceptionistsFile()
         {
 
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Receptionists.csv";
+            string pathoffile = "Receptionists.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Receptionists receptionist = null;
             for (int i = 0; i < lines.Length; i++)
@@ -143,7 +143,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public List<HousekeepingStaff> ImportHKStaffFile()
         {
 
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Housekeeping.csv";
+            string pathoffile = "Housekeeping.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             HousekeepingStaff hKStaff = null;
             for (int i = 0; i < lines.Length; i++)
@@ -169,10 +169,10 @@ namespace FinalAssigment_TheoPatrikDaniel
             return hKStaffs;
         }
         //import Room file_______________________________________________________________________________________________________________________________________________
-        public List<Room> ImportRoomFile()
+        private List<Room> ImportRoomFile()
         {
 
-            string pathoffile = "C:\\Users\\danis\\source\\repos\\HotelX\\FinalAssigment_TheoPatrikDaniel\\FileSources\\Rooms.csv";
+            string pathoffile = "Rooms.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Room room = null;
             for (int i = 0; i < lines.Length; i++)
@@ -250,6 +250,15 @@ namespace FinalAssigment_TheoPatrikDaniel
                             Console.WriteLine($"SSN: {receptionist.SSN}, first name: {receptionist.FirstName}, last name: {receptionist.LastName}, address: {receptionist.Address}, " +
                                 $"date of birth: {receptionist.DOB}, date of joining: {receptionist.JoinedDate}, other expertise: {receptionist.OtherExpertise}," +
                                 $" years of experience {receptionist.YearsOfExperience}.", Console.BackgroundColor, Console.ForegroundColor);
+                            Console.WriteLine();
+                        }
+                        Console.WriteLine("************ Here the details of the managers ************");
+                        Console.WriteLine();
+                        foreach (Manager manager in managers)
+                        {
+                            Console.WriteLine($"SSN: {manager.SSN}, first name: {manager.FirstName}, last name: {manager.LastName}, address: {manager.Address}, " +
+                                $"date of birth: {manager.DOB}, date of joining: {manager.JoinedDate}, other expertise: {manager.OtherExpertise}," +
+                                $" seniority status: {manager.Senior}, holds a(n) hospitality/academic degree: {manager.HoldsHospitalityAcademicDegree}, years of experience {manager.YearsOfExperience}.", Console.BackgroundColor, Console.ForegroundColor);
                             Console.WriteLine();
                         }
 
