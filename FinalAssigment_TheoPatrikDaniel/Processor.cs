@@ -228,15 +228,22 @@ namespace FinalAssigment_TheoPatrikDaniel
                         //Choose Room
                         Console.WriteLine("*****Book a room*****");
                         //list of roomsˇˇ
-
-
-                        Console.WriteLine("Which room would you like to book?");
-                        int rn = int.Parse(Console.ReadLine());
+                        foreach (Room room in rooms)
+                        {
+                            Console.WriteLine($"{room.Id} {room.RoomName} {room.RoomPrice}");
+                        }
+                        Room n1 = new Room();
+                        Console.WriteLine(" ");
+                        Console.Write("Please provide the room number:");
+                        n1.Id = int.Parse(Console.ReadLine());
                         Console.WriteLine("Please provide the start date and the end date of the booking:");
                         Console.Write("Start date: ");
-                        /*start date from room csv = */DateTime.Parse(Console.ReadLine());
+                        n1.StartDate = DateTime.Parse(Console.ReadLine());
                         Console.Write("End date: ");
-                        /*end date from room csv = */DateTime.Parse(Console.ReadLine());
+                        n1.EndDate = DateTime.Parse(Console.ReadLine());
+
+                        /*end date from room csv = */
+                        DateTime.Parse(Console.ReadLine());
                         break;
                     case 2:
                         //show all bookings in the future
