@@ -184,8 +184,6 @@ namespace FinalAssigment_TheoPatrikDaniel
                     room.Id = int.Parse(cols[0]);
                     room.RoomName = cols[1];
                     room.RoomPrice = int.Parse(cols[2]);
-                    room.Dates = DateTime.ParseExact(cols[3],"dd.MM.yyyy" ,CultureInfo.InvariantCulture);
-                    room.Booked = bool.Parse(cols[4]);
 
                     rooms.Add(room);
                 }
@@ -221,6 +219,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                 {
                     case 1:
                         //BookRoom menu
+
                         /*
                           Console.WriteLine("Please provide your Date of Birth (dd-MM-yyyy):");
                           aff.Dob = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", null);
@@ -262,13 +261,13 @@ namespace FinalAssigment_TheoPatrikDaniel
                             Console.WriteLine();
                         }
 
-                       /* Console.WriteLine("************Here the details of all the housekeeping staff members************");
-                                                foreach (HousekeepingStaff staff in hKStaffs)
-                        {
-                            Console.WriteLine($"SSN: {staff.SSN}, first name: {staff.FirstName}, last name: {staff.LastName}, address: {staff.Address}, " +
-                                $"date of birth: {staff.DOB}, date of joining: {staff.JoinedDate}.", Console.BackgroundColor, Console.ForegroundColor);
-                            Console.WriteLine();
-                        }*/ 
+                        /* Console.WriteLine("************Here the details of all the housekeeping staff members************");
+                                                 foreach (HousekeepingStaff staff in hKStaffs)
+                         {
+                             Console.WriteLine($"SSN: {staff.SSN}, first name: {staff.FirstName}, last name: {staff.LastName}, address: {staff.Address}, " +
+                                 $"date of birth: {staff.DOB}, date of joining: {staff.JoinedDate}.", Console.BackgroundColor, Console.ForegroundColor);
+                             Console.WriteLine();
+                         }*/
 
 
                         Console.BackgroundColor = ConsoleColor.Black;
