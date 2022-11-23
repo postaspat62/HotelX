@@ -223,6 +223,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                          */
 
                         //Choose Room
+                        DateTime today = DateTime.Now;
                         Console.WriteLine("*****Book a room*****");
                         //list of roomsˇˇ
                         foreach (Room room in rooms)
@@ -234,8 +235,39 @@ namespace FinalAssigment_TheoPatrikDaniel
                         Console.Write("Please provide the room number:");
                         bookedRoom.Id = int.Parse(Console.ReadLine());
                         Console.WriteLine("Please provide the start date and the end date of the booking:");
-                        Console.Write("Start date: ");
-                        bookedRoom.StartDate = DateTime.Parse(Console.ReadLine());
+                        int i = 0;
+                        //Handeling the 60days criteria
+                        //+ start date can't be in the past
+                        do
+                        {
+                            Console.Write("Start date: ");
+                            bookedRoom.StartDate = DateTime.Parse(Console.ReadLine());
+                            TimeSpan timeSpan = bookedRoom.StartDate - today;
+                            //int totalday = timeSpan.Days;
+                            if (bookedRoom.StartDate >= today && (timeSpan.Days<60))
+                            {
+                                foreach(Room bRoom in bookedRooms)
+                                {
+                                    if (bRoom.Id==bookedRoom.Id && bRoom.StartDate>bookedRoom.EndDate)
+                                    {
+                                        i++;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("The room is already booked in that date, please choose another date.");
+                                    }
+                                }
+                                
+                            }
+                            else
+                            {
+                                Console.WriteLine("The given start date falls outside of 60 day limit, please try again.");
+                                
+                            }
+
+                        }
+                        while (i < 1);
+
                         Console.Write("End date: ");
                         bookedRoom.EndDate = DateTime.Parse(Console.ReadLine());
                         
