@@ -238,12 +238,14 @@ namespace FinalAssigment_TheoPatrikDaniel
                         int i = 0;
                         //Handeling the 60days criteria
                         //+ start date can't be in the past
+                        //
                         do
                         {
                             Console.Write("Start date: ");
                             bookedRoom.StartDate = DateTime.Parse(Console.ReadLine());
                             TimeSpan timeSpan = bookedRoom.StartDate - today;
-                            //int totalday = timeSpan.Days;
+                            //bookedRoom = the room, which is being booked now.
+                            //bookedRooms = the list, which contains the booked rooms
                             if (bookedRoom.StartDate >= today && (timeSpan.Days<60))
                             {
                                 foreach(Room bRoom in bookedRooms)
