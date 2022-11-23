@@ -12,7 +12,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public int Id { get; set; }
         public string RoomName { get; set; }
         public int RoomPrice { get; set; }
-        public DateTime Dates { get; set; } //later date
+        public DateTime Dates { get; set; }
         public bool Booked { get; set; }
 
         //methods
