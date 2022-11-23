@@ -1,0 +1,4 @@
+﻿SSN;Firstname;Lastname;Address;DOB;JoinedDate;OtherExpertise;Senior;HoldsHospitality/AcademicDegree;YearsOfExperience
+330628717;Lex;Luthor;Gotham street 64;04.28.1984;09.19.2020;Finance;TRUE;TRUE;16
+330628718;Mask;Black;Gotham street 65;04.28.1985;09.19.2021;Accountant;FALSE;TRUE;17
+330628719;Mercy;Graves;Gotham street 66;04.28.1986;09.19.2022;Sales;FALSE;TRUE;18
