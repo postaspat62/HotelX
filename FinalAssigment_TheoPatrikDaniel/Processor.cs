@@ -216,24 +216,18 @@ namespace FinalAssigment_TheoPatrikDaniel
                 {
                     case 1:
                         //BookRoom menu
-
-                        /*
-                          Console.WriteLine("Please provide your Date of Birth (dd-MM-yyyy):");
-                          aff.Dob = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", null);
-                         */
-
                         //Choose Room
-                        DateTime today = DateTime.Now;
+                        DateTime today = DateTime.Now.Date;
                         Console.WriteLine("*****Book a room*****");
                         //list of roomsˇˇ
                         foreach (Room room in rooms)
                         {
                             Console.WriteLine($"{room.Id} {room.RoomName} {room.RoomPrice}");
                         }
-                        Room bookedRoom = new Room();
+                        Room actualBookedRoom = new Room();
                         Console.WriteLine(" ");
                         Console.Write("Please provide the room number:");
-                        bookedRoom.Id = int.Parse(Console.ReadLine());
+                        actualBookedRoom.Id = int.Parse(Console.ReadLine());
                         
                         int i = 0;
                         //Handeling the 60days criteria
@@ -243,17 +237,19 @@ namespace FinalAssigment_TheoPatrikDaniel
                         {
                             Console.WriteLine("Please provide the start date and the end date of the booking:");
                             Console.Write("Start date (dd-MM-yyyy): ");
-                            Console.WriteLine(today);
-                            bookedRoom.StartDate = DateTime.ParseExact(Console.ReadLine(),"dd-MM-yyyy",null);
-                            TimeSpan timeSpan = bookedRoom.StartDate - today;
+                            actualBookedRoom.StartDate = DateTime.ParseExact(Console.ReadLine(),"dd-MM-yyyy",null);
+
+                            Console.Write("End date (dd-MM-yyyy): ");
+                            actualBookedRoom.EndDate = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", null);
+                            TimeSpan timeSpan = actualBookedRoom.StartDate - today;
                             //bookedRoom = the room, which is being booked now.
                             //bookedRooms = the list, which contains the booked rooms
-                            if (bookedRoom.StartDate >= today && (timeSpan.Days<60))
+                            if (actualBookedRoom.StartDate >= today && (timeSpan.Days<60) && actualBookedRoom.StartDate < actualBookedRoom.EndDate)
                             {
-                                /*
+                                
                                 foreach(Room bRoom in bookedRooms)
                                 {
-                                    if (bRoom.Id==bookedRoom.Id && bRoom.StartDate>bookedRoom.EndDate)
+                                    if (bRoom.Id == actualBookedRoom.Id && (bRoom.StartDate >= actualBookedRoom.EndDate || bRoom.EndDate <= actualBookedRoom.StartDate))
                                     {
                                         i++;
                                     }
@@ -261,7 +257,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                                     {
                                         Console.WriteLine("The room is already booked in that date, please choose another date.");
                                     }
-                                }*/
+                                }
                                 i++;
                                 
                             }
@@ -274,10 +270,8 @@ namespace FinalAssigment_TheoPatrikDaniel
                         }
                         while (i < 1);
 
-                        Console.Write("End date: ");
-                        bookedRoom.EndDate = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", null);
 
-                        bookedRooms.Add(bookedRoom);
+                        bookedRooms.Add(actualBookedRoom);
 
                         /*end date from room csv = */
                         break;
@@ -292,15 +286,11 @@ namespace FinalAssigment_TheoPatrikDaniel
                                 }
                                 
                             }
-                           // Console.WriteLine($"{room.Id} - {room.RoomName} - {room.RoomPrice} - {room.StartDate} - {room.EndDate}");
                         }
                         //show all bookings in the future
                         break;
                     case 3:
-                        //show all staff details
-
-                        Console.BackgroundColor = ConsoleColor.White;
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        //show all staff details                  
                         Console.WriteLine("************ Here the details of all the housekeeping staff members ************");
                         Console.WriteLine();
                         foreach (HousekeepingStaff staff in hKStaffs)
@@ -328,18 +318,6 @@ namespace FinalAssigment_TheoPatrikDaniel
                                 $" seniority status: {manager.Senior}, holds a(n) hospitality/academic degree: {manager.HoldsHospitalityAcademicDegree}, years of experience {manager.YearsOfExperience}.", Console.BackgroundColor, Console.ForegroundColor);
                             Console.WriteLine();
                         }
-
-                        /* Console.WriteLine("************Here the details of all the housekeeping staff members************");
-                                                 foreach (HousekeepingStaff staff in hKStaffs)
-                         {
-                             Console.WriteLine($"SSN: {staff.SSN}, first name: {staff.FirstName}, last name: {staff.LastName}, address: {staff.Address}, " +
-                                 $"date of birth: {staff.DOB}, date of joining: {staff.JoinedDate}.", Console.BackgroundColor, Console.ForegroundColor);
-                             Console.WriteLine();
-                         }*/
-
-
-                        Console.BackgroundColor = ConsoleColor.Black;
-                        Console.ForegroundColor = ConsoleColor.White;
                         break;
                     case 4:
                         //print total value of booked rooms
