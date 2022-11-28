@@ -45,7 +45,7 @@ namespace FinalAssigment_TheoPatrikDaniel
             throw new NotImplementedException();
         }
 
-        //import CUSTOMER file________________________________________________________________________________________________________________________________________
+        //import Customer file________________________________________________________________________________________________________________________________________
         public List<Customer> ImportCustomerFile()
         {
             
@@ -234,20 +234,22 @@ namespace FinalAssigment_TheoPatrikDaniel
                         Console.WriteLine(" ");
                         Console.Write("Please provide the room number:");
                         bookedRoom.Id = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Please provide the start date and the end date of the booking:");
+                        
                         int i = 0;
                         //Handeling the 60days criteria
                         //+ start date can't be in the past
                         //
                         do
                         {
-                            Console.Write("Start date: ");
-                            bookedRoom.StartDate = DateTime.Parse(Console.ReadLine());
+                            Console.WriteLine("Please provide the start date and the end date of the booking:");
+                            Console.Write("Start date (dd-MM-yyyy): ");
+                            bookedRoom.StartDate = DateTime.ParseExact(Console.ReadLine(),"dd-mm-yyyy",null);
                             TimeSpan timeSpan = bookedRoom.StartDate - today;
                             //bookedRoom = the room, which is being booked now.
                             //bookedRooms = the list, which contains the booked rooms
                             if (bookedRoom.StartDate >= today && (timeSpan.Days<60))
                             {
+                                /*
                                 foreach(Room bRoom in bookedRooms)
                                 {
                                     if (bRoom.Id==bookedRoom.Id && bRoom.StartDate>bookedRoom.EndDate)
@@ -258,7 +260,8 @@ namespace FinalAssigment_TheoPatrikDaniel
                                     {
                                         Console.WriteLine("The room is already booked in that date, please choose another date.");
                                     }
-                                }
+                                }*/
+                                i++;
                                 
                             }
                             else
