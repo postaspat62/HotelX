@@ -45,7 +45,7 @@ namespace FinalAssigment_TheoPatrikDaniel
             throw new NotImplementedException();
         }
 
-        //import CUSTOMER file________________________________________________________________________________________________________________________________________
+        //import Customer file________________________________________________________________________________________________________________________________________
         public List<Customer> ImportCustomerFile()
         {
             
@@ -145,7 +145,6 @@ namespace FinalAssigment_TheoPatrikDaniel
 
             string pathoffile = "Housekeeping.csv";
             string[] lines = File.ReadAllLines(pathoffile);
-            
             HousekeepingStaff hKStaff = null;
             for (int i = 0; i < lines.Length; i++)
             {
@@ -235,21 +234,24 @@ namespace FinalAssigment_TheoPatrikDaniel
                         Console.WriteLine(" ");
                         Console.Write("Please provide the room number:");
                         bookedRoom.Id = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Please provide the start date and the end date of the booking:");
+                        
                         int i = 0;
                         //Handeling the 60days criteria
                         //+ start date can't be in the past
                         //
                         do
                         {
-                            Console.Write("Start date: ");
-                            bookedRoom.StartDate = DateTime.Parse(Console.ReadLine());
+                            Console.WriteLine("Please provide the start date and the end date of the booking:");
+                            Console.Write("Start date (dd-MM-yyyy): ");
+                            Console.WriteLine(today);
+                            bookedRoom.StartDate = DateTime.ParseExact(Console.ReadLine(),"dd-MM-yyyy",null);
                             TimeSpan timeSpan = bookedRoom.StartDate - today;
                             //bookedRoom = the room, which is being booked now.
                             //bookedRooms = the list, which contains the booked rooms
                             if (bookedRoom.StartDate >= today && (timeSpan.Days<60))
                             {
-                                /*foreach(Room bRoom in bookedRooms)
+                                /*
+                                foreach(Room bRoom in bookedRooms)
                                 {
                                     if (bRoom.Id==bookedRoom.Id && bRoom.StartDate>bookedRoom.EndDate)
                                     {
@@ -259,9 +261,9 @@ namespace FinalAssigment_TheoPatrikDaniel
                                     {
                                         Console.WriteLine("The room is already booked in that date, please choose another date.");
                                     }
-                                    
                                 }*/
                                 i++;
+                                
                             }
                             else
                             {
@@ -273,8 +275,8 @@ namespace FinalAssigment_TheoPatrikDaniel
                         while (i < 1);
 
                         Console.Write("End date: ");
-                        bookedRoom.EndDate = DateTime.Parse(Console.ReadLine());
-                        
+                        bookedRoom.EndDate = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", null);
+
                         bookedRooms.Add(bookedRoom);
 
                         /*end date from room csv = */
@@ -286,7 +288,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                             foreach(Room room in rooms)
                             {
                                 if(bRoom.Id == room.Id) {
-                                    Console.WriteLine($"{bRoom.Id} - {room.RoomName} - {room.RoomPrice} - {bRoom.StartDate} - {bRoom.EndDate}");
+                                    Console.WriteLine($"{bRoom.Id} - {room.RoomName} - {room.RoomPrice} - {bRoom.StartDate.ToString("dd/MM/yyyy")} - {bRoom.EndDate.ToString("dd/MM/yyyy")}");
                                 }
                                 
                             }
@@ -342,21 +344,6 @@ namespace FinalAssigment_TheoPatrikDaniel
                     case 4:
                         //print total value of booked rooms
                         //total value =+ (days*roomprice)
-                        int totalvalue = 0;
-                        foreach (Room bRoom in bookedRooms)
-                        {
-                            foreach (Room room in rooms)
-                            {
-                                if (bRoom.Id == room.Id)
-                                {
-                                    totalvalue = totalvalue + room.RoomPrice;
-                                }
-
-                            }
-                        }
-                            Console.WriteLine($"The total value of the rooms booked: {totalvalue}");
-
-                        
                         break;
                 }
 
