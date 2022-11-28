@@ -344,6 +344,20 @@ namespace FinalAssigment_TheoPatrikDaniel
                     case 4:
                         //print total value of booked rooms
                         //total value =+ (days*roomprice)
+
+                        int totalvalue = 0;
+                        foreach (Room bRoom in bookedRooms)
+                        {
+                            foreach (Room room in rooms)
+                            {
+                                if (bRoom.Id == room.Id)
+                                {
+                                    totalvalue = totalvalue + room.RoomPrice;
+                                }
+
+                            }
+                        }
+                        Console.WriteLine($"The total value of the rooms booked: {totalvalue}");
                         break;
                 }
 
