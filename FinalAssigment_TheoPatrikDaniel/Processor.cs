@@ -243,7 +243,8 @@ namespace FinalAssigment_TheoPatrikDaniel
                         {
                             Console.WriteLine("Please provide the start date and the end date of the booking:");
                             Console.Write("Start date (dd-MM-yyyy): ");
-                            bookedRoom.StartDate = DateTime.ParseExact(Console.ReadLine(),"dd-mm-yyyy",null);
+                            Console.WriteLine(today);
+                            bookedRoom.StartDate = DateTime.ParseExact(Console.ReadLine(),"dd-MM-yyyy",null);
                             TimeSpan timeSpan = bookedRoom.StartDate - today;
                             //bookedRoom = the room, which is being booked now.
                             //bookedRooms = the list, which contains the booked rooms
@@ -274,8 +275,8 @@ namespace FinalAssigment_TheoPatrikDaniel
                         while (i < 1);
 
                         Console.Write("End date: ");
-                        bookedRoom.EndDate = DateTime.Parse(Console.ReadLine());
-                        
+                        bookedRoom.EndDate = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", null);
+
                         bookedRooms.Add(bookedRoom);
 
                         /*end date from room csv = */
@@ -287,7 +288,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                             foreach(Room room in rooms)
                             {
                                 if(bRoom.Id == room.Id) {
-                                    Console.WriteLine($"{bRoom.Id} - {room.RoomName} - {room.RoomPrice} - {bRoom.StartDate} - {bRoom.EndDate}");
+                                    Console.WriteLine($"{bRoom.Id} - {room.RoomName} - {room.RoomPrice} - {bRoom.StartDate.ToString("dd/MM/yyyy")} - {bRoom.EndDate.ToString("dd/MM/yyyy")}");
                                 }
                                 
                             }
