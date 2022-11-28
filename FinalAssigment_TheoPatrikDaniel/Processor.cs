@@ -145,6 +145,7 @@ namespace FinalAssigment_TheoPatrikDaniel
 
             string pathoffile = "Housekeeping.csv";
             string[] lines = File.ReadAllLines(pathoffile);
+            
             HousekeepingStaff hKStaff = null;
             for (int i = 0; i < lines.Length; i++)
             {
