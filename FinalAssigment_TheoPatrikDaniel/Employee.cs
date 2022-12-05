@@ -24,24 +24,12 @@ namespace FinalAssigment_TheoPatrikDaniel
         //abstract methods means, we have to inheritate them to child classes
         //they have to be overriden in child classes
         //but this not meeans that we have to use only abstract classes
-        public void ShowAllBookings()
+        public override string ToString()
         {
+            string staffInfo = $"SSN: {SSN}; Name: {FirstName} {LastName}; Date of birth: {DOB}\n";
+            staffInfo = staffInfo + $"Address: {Address}; Date of joining: {JoinedDate}";
+            return staffInfo;
 
         }
-
-        public int ShowTotalValueOfBookedRooms()
-        {
-            return 0;
-        }
-        public void ShowAllStaffDetails()
-        {
-
-        }
-
-        public void BookRoom()
-        {
-
-        }
-
     }
 }
