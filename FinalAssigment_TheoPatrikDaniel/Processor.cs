@@ -234,10 +234,10 @@ namespace FinalAssigment_TheoPatrikDaniel
                         {
                             Console.WriteLine($"{customer.Id} {customer.Name} {customer.Address} {customer.Nationality} {customer.DOB} {customer.MemberSince} ");
                         }
-                        Customer newCustomer = new Customer();
+                        
                         Console.WriteLine(" ");
                         Console.Write("Please provide the customer Id:");
-                        newCustomer.Id = int.Parse(Console.ReadLine());
+                        actualBookedRoom.BookedCustomerId = int.Parse(Console.ReadLine());
 
                         int i = 0;
                         //Handeling the 60days criteria
@@ -313,7 +313,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                             {
                                 if (bRoom.Id == room.Id)
                                 {
-                                    Console.WriteLine($"{bRoom.Id} - {room.RoomName} - {room.RoomPrice} - {bRoom.StartDate.ToString("dd/MM/yyyy")} - {bRoom.EndDate.ToString("dd/MM/yyyy")}");
+                                    Console.WriteLine($"{bRoom.Id} - {room.RoomName} - {room.RoomPrice} - {bRoom.StartDate.ToString("dd/MM/yyyy")} - {bRoom.EndDate.ToString("dd/MM/yyyy")} Booked by customer (ID): {bRoom.BookedCustomerId}");
                                 }
 
                             }
