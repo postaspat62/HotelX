@@ -15,10 +15,12 @@ namespace FinalAssigment_TheoPatrikDaniel
     {
         //Lists for every type of classes for import files
         List<Customer> customers = new List<Customer>();
-        List<Manager> managers = new List<Manager>();
-        List<Receptionists> receptionists = new List<Receptionists>();
-        List<HousekeepingStaff> hKStaffs = new List<HousekeepingStaff>();
+        //List<Manager> managers = new List<Manager>();
+        //List<Receptionists> receptionists = new List<Receptionists>();
+        //List<HousekeepingStaff> hKStaffs = new List<HousekeepingStaff>();
+        List<Employee> allEmployes = new List<Employee>();
         List<Room> rooms = new List<Room>();
+        
         public int CountAllCustomers()
         {
             throw new NotImplementedException();
@@ -44,7 +46,7 @@ namespace FinalAssigment_TheoPatrikDaniel
             throw new NotImplementedException();
         }
 
-        //import Customer file________________________________________________________________________________________________________________________________________
+        //import Customer file_____________________________________________________________________________________________________________________________________________________________
         public List<Customer> ImportCustomerFile()
         {
 
@@ -73,8 +75,8 @@ namespace FinalAssigment_TheoPatrikDaniel
             }
             return customers;
         }
-        //import Manager file_______________________________________________________________________________________________________________________________________________
-        public List<Manager> ImportManagerFile()
+        //import Manager file______________________________________________________________________________________________________________________________________________________________
+        public List<Employee> ImportManagerFile()
         {
 
             string pathoffile = "Managers.csv";
@@ -96,7 +98,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                     manager.Senior = bool.Parse(cols[7]);
                     manager.HoldsHospitalityAcademicDegree = bool.Parse(cols[8]);
                     manager.YearsOfExperience = int.Parse(cols[9]);
-                    managers.Add(manager);
+                    allEmployes.Add(manager);
                 }
                 catch (Exception ex)
                 {
@@ -104,11 +106,11 @@ namespace FinalAssigment_TheoPatrikDaniel
                     string s = "Lets go ";
                 }
             }
-            return managers;
+            return allEmployes;
         }
 
-        //import Receptionists file_______________________________________________________________________________________________________________________________________________
-        public List<Receptionists> ImportReceptionistsFile()
+        //import Receptionists file_________________________________________________________________________________________________________________________________________________________
+        public List<Employee> ImportReceptionistsFile()
         {
 
             string pathoffile = "Receptionists.csv";
@@ -128,7 +130,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                     receptionist.JoinedDate = cols[5];
                     receptionist.YearsOfExperience = int.Parse(cols[6]);
                     receptionist.OtherExpertise = cols[7];
-                    receptionists.Add(receptionist);
+                    allEmployes.Add(receptionist);
                 }
                 catch (Exception ex)
                 {
@@ -136,10 +138,10 @@ namespace FinalAssigment_TheoPatrikDaniel
                     string s = "Lets go ";
                 }
             }
-            return receptionists;
+            return allEmployes;
         }
-        //import House keeping staff file_______________________________________________________________________________________________________________________________________________
-        public List<HousekeepingStaff> ImportHKStaffFile()
+        //import House keeping staff file____________________________________________________________________________________________________________________________________________________
+        public List<Employee> ImportHKStaffFile()
         {
 
             string pathoffile = "Housekeeping.csv";
@@ -157,7 +159,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                     hKStaff.Address = cols[3];
                     hKStaff.DOB = cols[4];
                     hKStaff.JoinedDate = cols[5];
-                    hKStaffs.Add(hKStaff);
+                    allEmployes.Add(hKStaff);
                 }
                 catch (Exception ex)
                 {
@@ -165,9 +167,9 @@ namespace FinalAssigment_TheoPatrikDaniel
                     string s = "Lets go ";
                 }
             }
-            return hKStaffs;
+            return allEmployes;
         }
-        //import Room file_______________________________________________________________________________________________________________________________________________
+        //import Room file____________________________________________________________________________________________________________________________________________________________________
         private List<Room> ImportRoomFile()
         {
 
@@ -206,7 +208,7 @@ namespace FinalAssigment_TheoPatrikDaniel
             //creating list for booked rooms
             List<Room> bookedRooms = new List<Room>();
 
-            //menu____________________________________________________________________________________
+            //menu____________________________________________________________________________________________________________________________________________________________________________
             int input = -1;
             do
             {
@@ -320,33 +322,16 @@ namespace FinalAssigment_TheoPatrikDaniel
                         break;
                     case 3:
                         //show all staff details                  
-                        Console.WriteLine("************ Here the details of all the housekeeping staff members ************");
+                        Console.WriteLine("************ Here the details of all staff members ************");
                         Console.WriteLine();
-                        foreach (HousekeepingStaff staff in hKStaffs)
+                        foreach(Employee staff in allEmployes)
                         {
-                            Console.WriteLine($"SSN: {staff.SSN}, first name: {staff.FirstName}, last name: {staff.LastName}, address: {staff.Address}, " +
-                                $"date of birth: {staff.DOB}, date of joining: {staff.JoinedDate}.", Console.BackgroundColor, Console.ForegroundColor);
+                            Console.WriteLine(staff);
                             Console.WriteLine();
                         }
 
-                        Console.WriteLine("************ Here the details of all the receptionists ************");
-                        Console.WriteLine();
-                        foreach (Receptionists receptionist in receptionists)
-                        {
-                            Console.WriteLine($"SSN: {receptionist.SSN}, first name: {receptionist.FirstName}, last name: {receptionist.LastName}, address: {receptionist.Address}, " +
-                                $"date of birth: {receptionist.DOB}, date of joining: {receptionist.JoinedDate}, other expertise: {receptionist.OtherExpertise}," +
-                                $" years of experience {receptionist.YearsOfExperience}.", Console.BackgroundColor, Console.ForegroundColor);
-                            Console.WriteLine();
-                        }
-                        Console.WriteLine("************ Here the details of the managers ************");
-                        Console.WriteLine();
-                        foreach (Manager manager in managers)
-                        {
-                            Console.WriteLine($"SSN: {manager.SSN}, first name: {manager.FirstName}, last name: {manager.LastName}, address: {manager.Address}, " +
-                                $"date of birth: {manager.DOB}, date of joining: {manager.JoinedDate}, other expertise: {manager.OtherExpertise}," +
-                                $" seniority status: {manager.Senior}, holds a(n) hospitality/academic degree: {manager.HoldsHospitalityAcademicDegree}, years of experience {manager.YearsOfExperience}.", Console.BackgroundColor, Console.ForegroundColor);
-                            Console.WriteLine();
-                        }
+
+
                         break;
                     case 4:
                         //print total value of booked rooms
