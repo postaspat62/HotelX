@@ -15,10 +15,7 @@ namespace FinalAssigment_TheoPatrikDaniel
     {
         //Lists for every type of classes for import files
         List<Customer> customers = new List<Customer>();
-        //List<Manager> managers = new List<Manager>();
-        //List<Receptionists> receptionists = new List<Receptionists>();
-        //List<HousekeepingStaff> hKStaffs = new List<HousekeepingStaff>();
-        List<Employee> allEmployes = new List<Employee>();
+        List<Employee> allEmployees = new List<Employee>();
         List<Room> rooms = new List<Room>();
         
         public int CountAllCustomers()
@@ -98,7 +95,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                     manager.Senior = bool.Parse(cols[7]);
                     manager.HoldsHospitalityAcademicDegree = bool.Parse(cols[8]);
                     manager.YearsOfExperience = int.Parse(cols[9]);
-                    allEmployes.Add(manager);
+                    allEmployees.Add(manager);
                 }
                 catch (Exception ex)
                 {
@@ -106,7 +103,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                     string s = "Lets go ";
                 }
             }
-            return allEmployes;
+            return allEmployees;
         }
 
         //import Receptionists file_________________________________________________________________________________________________________________________________________________________
@@ -130,7 +127,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                     receptionist.JoinedDate = cols[5];
                     receptionist.YearsOfExperience = int.Parse(cols[6]);
                     receptionist.OtherExpertise = cols[7];
-                    allEmployes.Add(receptionist);
+                    allEmployees.Add(receptionist);
                 }
                 catch (Exception ex)
                 {
@@ -138,7 +135,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                     string s = "Lets go ";
                 }
             }
-            return allEmployes;
+            return allEmployees;
         }
         //import House keeping staff file____________________________________________________________________________________________________________________________________________________
         public List<Employee> ImportHKStaffFile()
@@ -159,7 +156,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                     hKStaff.Address = cols[3];
                     hKStaff.DOB = cols[4];
                     hKStaff.JoinedDate = cols[5];
-                    allEmployes.Add(hKStaff);
+                    allEmployees.Add(hKStaff);
                 }
                 catch (Exception ex)
                 {
@@ -167,7 +164,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                     string s = "Lets go ";
                 }
             }
-            return allEmployes;
+            return allEmployees;
         }
         //import Room file____________________________________________________________________________________________________________________________________________________________________
         private List<Room> ImportRoomFile()
@@ -324,7 +321,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                         //show all staff details                  
                         Console.WriteLine("************ Here the details of all staff members ************");
                         Console.WriteLine();
-                        foreach(Employee staff in allEmployes)
+                        foreach(Employee staff in allEmployees)
                         {
                             Console.WriteLine(staff);
                             Console.WriteLine();
