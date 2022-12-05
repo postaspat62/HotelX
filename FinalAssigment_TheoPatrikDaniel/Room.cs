@@ -14,7 +14,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public int RoomPrice { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate {get;set;}
-        public bool Booked { get; set; }
+        public int BookedCustomerId { get; set; }
 
         //methods
         public override string ToString()
