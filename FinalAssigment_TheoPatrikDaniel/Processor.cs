@@ -19,7 +19,6 @@ namespace FinalAssigment_TheoPatrikDaniel
         List<Receptionists> receptionists = new List<Receptionists>();
         List<HousekeepingStaff> hKStaffs = new List<HousekeepingStaff>();
         List<Room> rooms = new List<Room>();
-        //
         public int CountAllCustomers()
         {
             throw new NotImplementedException();
