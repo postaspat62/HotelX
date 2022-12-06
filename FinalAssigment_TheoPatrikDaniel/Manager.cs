@@ -15,6 +15,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public bool HoldsHospitalityAcademicDegree { get; set; }
         public bool Senior { get; set; }
 
+        //the override method lists additional staff details that are unique to this type of staff
         public override string ToString()
         {
 

@@ -11,42 +11,17 @@ using File = System.IO.File;
 
 namespace FinalAssigment_TheoPatrikDaniel
 {
-    internal class Processor : Interface, Importer, IAnalysis
+    internal class Processor
     {
         //Lists for every type of classes for import files
         List<Customer> customers = new List<Customer>();
         List<Employee> allEmployees = new List<Employee>();
         List<Room> rooms = new List<Room>();
-        
-        public int CountAllCustomers()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string FetchFileInformation()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Customer> GetAllCustomers()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Customer> GetCustomerList()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Customer> ImportCustomersFromFile(string filePath)
-        {
-            throw new NotImplementedException();
-        }
-
+    
         //import Customer file_____________________________________________________________________________________________________________________________________________________________
         public List<Customer> ImportCustomerFile()
         {
-
+            //ˇˇ.csv files placed in the Debug folder of the project, so the program can find them by file name, instead of the complete path.
             string pathoffile = "Customers.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Customer customer = null;
@@ -64,10 +39,11 @@ namespace FinalAssigment_TheoPatrikDaniel
                     customer.MemberSince = cols[5];
                     customers.Add(customer);
                 }
-                catch (Exception ex)
+                catch /*(Exception ex)*/
                 {
-                     Console.WriteLine(ex.Message);
-                   // string s = "Lets go ";
+                   //Console.WriteLine(ex.Message);
+                   //^^normally displays an error message, we decided to leave it blank so the file-import can run smoother.
+                    
                 }
             }
             return customers;
@@ -75,7 +51,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         //import Manager file______________________________________________________________________________________________________________________________________________________________
         public List<Employee> ImportManagerFile()
         {
-
+            //ˇˇ.csv files placed in the Debug folder of the project, so the program can find them by file name, instead of the complete path.
             string pathoffile = "Managers.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Manager manager = null;
@@ -97,10 +73,10 @@ namespace FinalAssigment_TheoPatrikDaniel
                     manager.YearsOfExperience = int.Parse(cols[9]);
                     allEmployees.Add(manager);
                 }
-                catch (Exception ex)
+                catch /*(Exception ex)*/
                 {
                     // Console.WriteLine(ex.Message);
-                    string s = "Lets go ";
+                    //^^normally displays an error message, we decided to leave it blank so the file-import can run smoother.
                 }
             }
             return allEmployees;
@@ -109,7 +85,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         //import Receptionists file_________________________________________________________________________________________________________________________________________________________
         public List<Employee> ImportReceptionistsFile()
         {
-
+            //ˇˇ.csv files placed in the Debug folder of the project, so the program can find them by file name, instead of the complete path.
             string pathoffile = "Receptionists.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Receptionists receptionist = null;
@@ -129,10 +105,10 @@ namespace FinalAssigment_TheoPatrikDaniel
                     receptionist.OtherExpertise = cols[7];
                     allEmployees.Add(receptionist);
                 }
-                catch (Exception ex)
+                catch /*(Exception ex)*/
                 {
                     // Console.WriteLine(ex.Message);
-                    string s = "Lets go ";
+                    //^^normally displays an error message, we decided to leave it blank so the file-import can run smoother.
                 }
             }
             return allEmployees;
@@ -140,7 +116,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         //import House keeping staff file____________________________________________________________________________________________________________________________________________________
         public List<Employee> ImportHKStaffFile()
         {
-
+            //ˇˇ.csv files placed in the Debug folder of the project, so the program can find them by file name, instead of the complete path.
             string pathoffile = "Housekeeping.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             HousekeepingStaff hKStaff = null;
@@ -158,10 +134,10 @@ namespace FinalAssigment_TheoPatrikDaniel
                     hKStaff.JoinedDate = cols[5];
                     allEmployees.Add(hKStaff);
                 }
-                catch (Exception ex)
+                catch /*(Exception ex)*/
                 {
                     // Console.WriteLine(ex.Message);
-                    string s = "Lets go ";
+                    //^^normally displays an error message, we decided to leave it blank so the file-import can run smoother.
                 }
             }
             return allEmployees;
@@ -169,7 +145,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         //import Room file____________________________________________________________________________________________________________________________________________________________________
         private List<Room> ImportRoomFile()
         {
-
+            //ˇˇ.csv files placed in the Debug folder of the project, so the program can find them by file name, instead of the complete path.
             string pathoffile = "Rooms.csv";
             string[] lines = File.ReadAllLines(pathoffile);
             Room room = null;
@@ -185,10 +161,10 @@ namespace FinalAssigment_TheoPatrikDaniel
 
                     rooms.Add(room);
                 }
-                catch (Exception ex)
+                catch /*(Exception ex)*/
                 {
                     // Console.WriteLine(ex.Message);
-                    string s = "Lets go ";
+                    //^^normally displays an error message, we decided to leave it blank so the file-import can run smoother.
                 }
             }
             return rooms;
@@ -196,6 +172,7 @@ namespace FinalAssigment_TheoPatrikDaniel
 
         public void Process()
         {
+            //file-import methods are called
             ImportCustomerFile();
             ImportManagerFile();
             ImportReceptionistsFile();
@@ -210,14 +187,15 @@ namespace FinalAssigment_TheoPatrikDaniel
             do
             {
                 input = ShowMenu();
+                //The functions of the menu elaborated
                 switch (input)
                 {
                     case 1:
-                        //BookRoom menu
-                        //Choose Room
+                        //The staff can book a room for a customer in the members list. 
                         DateTime today = DateTime.Now.Date;
                         Console.WriteLine("*****Book a room*****");
-                        //list of roomsˇˇ
+
+                        //The list of all the rooms displayed
                         foreach (Room room in rooms)
                         {
                             Console.WriteLine($"{room.Id} {room.RoomName} {room.RoomPrice}");
@@ -227,6 +205,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                         Console.Write("Please provide the room number:");
                         actualBookedRoom.Id = int.Parse(Console.ReadLine());
 
+                        //The list of all customers displayed
                         foreach (Customer customer in customers)
                         {
                             Console.WriteLine($"{customer.Id} {customer.Name} {customer.Address} {customer.Nationality} {customer.DOB} {customer.MemberSince} ");
@@ -237,9 +216,10 @@ namespace FinalAssigment_TheoPatrikDaniel
                         actualBookedRoom.BookedCustomerId = int.Parse(Console.ReadLine());
 
                         int i = 0;
-                        //Handeling the 60days criteria
-                        //+ start date can't be in the past
-                        //
+                        // Handling exception connected to the booking date:
+                        // ...the room cannot be booked for more than 60 days in advance 
+                        // ...the room cannot be booked for the past 
+                        // ...the same room cannot be booked for the same date twice
                         do
                         {
                             Console.WriteLine("Please provide the start date and the end date of the booking:");
@@ -249,10 +229,15 @@ namespace FinalAssigment_TheoPatrikDaniel
                             Console.Write("End date (dd-MM-yyyy): ");
                             actualBookedRoom.EndDate = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", null);
                             TimeSpan timeSpan = actualBookedRoom.StartDate - today;
-                            //bookedRoom = the room, which is being booked now.
-                            //bookedRooms = the list, which contains the booked rooms
+                          
+                            //actualBookedRoom = the room, which is being booked now.
+                            //bookedRooms = the list, which contains all the booked rooms
+
+                            //checking whether the given dates are in the past, or outside the 60 days advance timespan.
                             if (actualBookedRoom.StartDate >= today && (timeSpan.Days < 60) && actualBookedRoom.StartDate < actualBookedRoom.EndDate)
                             {
+                                //Overlap handling
+                                //if there are no rooms booked yet, book the current room.
                                 if (bookedRooms.Count() == 0)
                                 {
                                     bookedRooms.Add(actualBookedRoom);
@@ -260,6 +245,7 @@ namespace FinalAssigment_TheoPatrikDaniel
                                 }
                                 else
                                 {
+                                    //checking if the same room has already been booked
                                     int counter = 0;
                                     foreach (Room bRoom in bookedRooms)
                                     {
@@ -269,22 +255,32 @@ namespace FinalAssigment_TheoPatrikDaniel
                                             break;
                                         }
                                     }
+                                    //if the room has already been booked, check for overlaps.
                                     if (counter > 0)
                                     {
+                                        int overlapcounter = 0;
                                         foreach (Room bRoom in bookedRooms)
                                         {
-                                            if (bRoom.Id == actualBookedRoom.Id && (bRoom.StartDate >= actualBookedRoom.EndDate || bRoom.EndDate <= actualBookedRoom.StartDate))
+                                            //searching for overlaps with the date, going through each element of the booked rooms list
+                                            if (bRoom.Id == actualBookedRoom.Id && (bRoom.StartDate <= actualBookedRoom.EndDate && actualBookedRoom.EndDate <= bRoom.EndDate || bRoom.EndDate >= actualBookedRoom.StartDate && actualBookedRoom.StartDate >= bRoom.StartDate))
                                             {
-                                                bookedRooms.Add(actualBookedRoom);
-                                                i++;
-                                                break;
-                                            }
-                                            else if (bRoom.Id == actualBookedRoom.Id)
-                                            {
-                                                Console.WriteLine("The room is already booked in that date, please choose another date.");
-                                            }
+                                                overlapcounter++;
+                                            } 
+                                        }
+                                        //if there are no overlaps, the room is booked.
+                                        if(overlapcounter<1)
+                                        {
+                                            bookedRooms.Add(actualBookedRoom);
+                                            i++;
+                                            break;
+                                        }
+                                        //if there is an overlap, give an error message and let the user choose dates again.
+                                        else
+                                        {
+                                            Console.WriteLine("The room is already booked in that date, please choose another date.");
                                         }
                                     }
+                                    //if the room has not been booked before, let it be booked.
                                     else
                                     {
                                         bookedRooms.Add(actualBookedRoom);
@@ -304,21 +300,22 @@ namespace FinalAssigment_TheoPatrikDaniel
                         break;
                     case 2:
                         Console.WriteLine();
+
+                        //Listing all bookings
                         foreach (Room bRoom in bookedRooms)
                         {
                             foreach (Room room in rooms)
                             {
                                 if (bRoom.Id == room.Id)
                                 {
-                                    Console.WriteLine($"{bRoom.Id} - {room.RoomName} - {room.RoomPrice} - {bRoom.StartDate.ToString("dd/MM/yyyy")} - {bRoom.EndDate.ToString("dd/MM/yyyy")} Booked by customer (ID): {bRoom.BookedCustomerId}");
+                                    Console.WriteLine($"{bRoom.Id} - {room.RoomName} - {room.RoomPrice} - {bRoom.StartDate.ToString("dd/MM/yyyy")} - {bRoom.EndDate.ToString("dd/MM/yyyy")} - Booked by customer (ID): {bRoom.BookedCustomerId}");
                                 }
 
                             }
                         }
-                        //show all bookings in the future
                         break;
                     case 3:
-                        //show all staff details                  
+                        //listing all staff details                  
                         Console.WriteLine("************ Here the details of all staff members ************");
                         Console.WriteLine();
                         foreach(Employee staff in allEmployees)
@@ -326,23 +323,21 @@ namespace FinalAssigment_TheoPatrikDaniel
                             Console.WriteLine(staff);
                             Console.WriteLine();
                         }
-
-
-
                         break;
                     case 4:
                         //print total value of booked rooms
-                        //total value =+ (days*roomprice)
                         int totalvalue = 0;
-                        int bookedDaysNumber = 0;
+                        int bookedDays= 0;
                         foreach (Room bRoom in bookedRooms)
                         {
                             foreach (Room room in rooms)
                             {
                                 if (bRoom.Id == room.Id)
                                 {
-                                    bookedDaysNumber = (bRoom.EndDate.Day - bRoom.StartDate.Day);
-                                    totalvalue += (bookedDaysNumber * room.RoomPrice);
+                                    //add the room price per day multiplied by the number of days of the booking to the total value
+                                    //do it for each booking
+                                    bookedDays = (bRoom.EndDate.Day - bRoom.StartDate.Day);
+                                    totalvalue += (bookedDays * room.RoomPrice);
                                 }
 
                             }
@@ -356,6 +351,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         }
         private int ShowMenu()
         {
+            //A menu with different functions, let's the user choose from the keyboard.
             Console.WriteLine("Welcome to HotelX");
             Console.WriteLine("Press 1. To book a room");
             Console.WriteLine("Press 2. To Show all bookings");

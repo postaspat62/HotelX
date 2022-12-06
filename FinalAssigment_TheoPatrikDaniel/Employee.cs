@@ -20,10 +20,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public string DOB { get; set; }
         public string JoinedDate { get; set; }
         //methods
-        //it will be a parent class so we should think about abstract methods
-        //abstract methods means, we have to inheritate them to child classes
-        //they have to be overriden in child classes
-        //but this not meeans that we have to use only abstract classes
+        //The method lists the basic details of the staff
         public override string ToString()
         {
             string staffInfo = $"SSN: {SSN}; Name: {FirstName} {LastName}; Date of birth: {DOB}\n";
