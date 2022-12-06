@@ -66,8 +66,8 @@ namespace FinalAssigment_TheoPatrikDaniel
                 }
                 catch (Exception ex)
                 {
-                    // Console.WriteLine(ex.Message);
-                    string s = "Lets go ";
+                     Console.WriteLine(ex.Message);
+                   // string s = "Lets go ";
                 }
             }
             return customers;
