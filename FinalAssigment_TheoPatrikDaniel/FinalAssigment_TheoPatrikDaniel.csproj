@@ -45,11 +45,7 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="EmployeeFileInfo.cs" />
     <Compile Include="HousekeepingStaff.cs" />
-    <Compile Include="IAnalysis.cs" />
-    <Compile Include="Importer.cs" />
-    <Compile Include="Interface.cs" />
     <Compile Include="Manager.cs" />
     <Compile Include="Processor.cs" />
     <Compile Include="Program.cs" />

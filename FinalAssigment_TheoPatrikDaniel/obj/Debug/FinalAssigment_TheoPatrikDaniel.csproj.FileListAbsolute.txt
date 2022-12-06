@@ -22,3 +22,11 @@ C:\Users\Szabó Patrik\Source\Repos\HotelX\FinalAssigment_TheoPatrikDaniel\obj\D
 C:\Users\Szabó Patrik\Source\Repos\HotelX\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.csproj.CoreCompileInputs.cache
 C:\Users\Szabó Patrik\Source\Repos\HotelX\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.exe
 C:\Users\Szabó Patrik\Source\Repos\HotelX\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.pdb
+C:\Users\danis\source\repos\HotelX\FinalAssigment_TheoPatrikDaniel\bin\Debug\FinalAssigment_TheoPatrikDaniel.exe.config
+C:\Users\danis\source\repos\HotelX\FinalAssigment_TheoPatrikDaniel\bin\Debug\FinalAssigment_TheoPatrikDaniel.exe
+C:\Users\danis\source\repos\HotelX\FinalAssigment_TheoPatrikDaniel\bin\Debug\FinalAssigment_TheoPatrikDaniel.pdb
+C:\Users\danis\source\repos\HotelX\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.csproj.AssemblyReference.cache
+C:\Users\danis\source\repos\HotelX\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.csproj.SuggestedBindingRedirects.cache
+C:\Users\danis\source\repos\HotelX\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.csproj.CoreCompileInputs.cache
+C:\Users\danis\source\repos\HotelX\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.exe
+C:\Users\danis\source\repos\HotelX\FinalAssigment_TheoPatrikDaniel\obj\Debug\FinalAssigment_TheoPatrikDaniel.pdb

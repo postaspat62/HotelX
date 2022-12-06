@@ -15,7 +15,6 @@ namespace FinalAssigment_TheoPatrikDaniel
         public string Nationality { get; set; }
         public string DOB { get; set; }
         public string MemberSince { get; set; }
-        //methods
-        //do we need any?
+
     }
 }

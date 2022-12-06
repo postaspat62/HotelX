@@ -14,12 +14,12 @@ namespace FinalAssigment_TheoPatrikDaniel
     internal class Processor
     {
         //Lists for every type of classes for import files
-        List<Customer> customers = new List<Customer>();
-        List<Employee> allEmployees = new List<Employee>();
-        List<Room> rooms = new List<Room>();
-    
+        private List<Customer> customers = new List<Customer>();
+        private List<Employee> allEmployees = new List<Employee>();
+        private List<Room> rooms = new List<Room>();
+
         //import Customer file_____________________________________________________________________________________________________________________________________________________________
-        public List<Customer> ImportCustomerFile()
+        private List<Customer> ImportCustomerFile()
         {
             //ˇˇ.csv files placed in the Debug folder of the project, so the program can find them by file name, instead of the complete path.
             string pathoffile = "Customers.csv";
@@ -49,7 +49,7 @@ namespace FinalAssigment_TheoPatrikDaniel
             return customers;
         }
         //import Manager file______________________________________________________________________________________________________________________________________________________________
-        public List<Employee> ImportManagerFile()
+        private List<Employee> ImportManagerFile()
         {
             //ˇˇ.csv files placed in the Debug folder of the project, so the program can find them by file name, instead of the complete path.
             string pathoffile = "Managers.csv";
@@ -83,7 +83,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         }
 
         //import Receptionists file_________________________________________________________________________________________________________________________________________________________
-        public List<Employee> ImportReceptionistsFile()
+        private List<Employee> ImportReceptionistsFile()
         {
             //ˇˇ.csv files placed in the Debug folder of the project, so the program can find them by file name, instead of the complete path.
             string pathoffile = "Receptionists.csv";
@@ -114,7 +114,7 @@ namespace FinalAssigment_TheoPatrikDaniel
             return allEmployees;
         }
         //import House keeping staff file____________________________________________________________________________________________________________________________________________________
-        public List<Employee> ImportHKStaffFile()
+        private List<Employee> ImportHKStaffFile()
         {
             //ˇˇ.csv files placed in the Debug folder of the project, so the program can find them by file name, instead of the complete path.
             string pathoffile = "Housekeeping.csv";
