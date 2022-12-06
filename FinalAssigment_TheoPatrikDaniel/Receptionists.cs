@@ -12,6 +12,7 @@ namespace FinalAssigment_TheoPatrikDaniel
         public int YearsOfExperience { get; set; }
         public string OtherExpertise { get; set; }
 
+        //the override method lists additional staff details that are unique to this type of staff
         public override string ToString()
         {
 
